@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select age</title>
+</head>
+<body>
+    <form method="post">
+        <p>
+            <input type="text" name="first_number" th:value="${param.first_number}" value="First Number"/>
+            +
+            <input type="text" name="second_number" th:value="${param.second_number}" value="First Number"/>
+            <input type="submit" value="="/>
+            <input disabled type="text" th:value="${sum}" value="Sum"/>
+        </p>
+    </form>
+</body>
+</html>
