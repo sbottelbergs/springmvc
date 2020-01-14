@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select age</title>
+</head>
+<body>
+    <h1 th:text="test"></h1>
+
+    <form method="post" th:each="product,status : ${products}">
+        <p>
+            <input type="text" name="product" th:value="${product}" value=""/>
+            <input type="hidden" name="index" th:value="${status.index}"/>
+            <input type="submit" name="action" value="Del"/>
+            <input type="submit" name="action" value="Change"/>
+        </p>
+    </form>
+
+    <form method="post">
+        <p>
+            <input type="text" name="product" value=""/>
+            <input type="submit" name="action" value="Add"/>
+        </p>
+    </form>
+</body>
+</html>

@@ -14,11 +14,11 @@ public class CalculatorController {
 
     @PostMapping()
     public ModelAndView handleSum(@RequestParam int first_number, @RequestParam int second_number) {
-        return new ModelAndView("/calc/calc", "sum", first_number + second_number);
+        return new ModelAndView("calc/calc", "sum", first_number + second_number);
     }
 
     @GetMapping
     public String handleGet() {
-        return "/calc/calc";
+        return "calc/calc";
     }
 }
