@@ -19,6 +19,7 @@ public class HelloApplication {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
                 registry.addViewController("/welcome").setViewName("welcome");
+                registry.addViewController("/customer/customerdetail").setViewName("customer/customerdetail");
             }
         };
     }
