@@ -20,6 +20,7 @@ public class HelloApplication {
             public void addViewControllers(ViewControllerRegistry registry) {
                 registry.addViewController("/welcome").setViewName("welcome");
                 registry.addViewController("/customer/customerdetail").setViewName("customer/customerdetail");
+                registry.addViewController("/address/addressdetail").setViewName("address/addressdetail");
             }
         };
     }
