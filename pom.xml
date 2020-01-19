@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>be.syntra.java.advanced</groupId>
-	<artifactId>hello</artifactId>
+	<artifactId>springmvc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hello</name>
 	<description>Demo project for Spring Boot</description>
@@ -37,11 +37,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
 		<!-- PERSISTENCE -->
