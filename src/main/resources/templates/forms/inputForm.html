@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+    <form method="post" th:object="${myform}">
+        <div th:each="choice : ${choiceList}">
+            <label th:for="${#ids.next('choices')}" th:text="${choice}"/>
+            <input type="checkbox" th:field="*{choices}" th:value="${choice}"/>
+        </div>
+        <div>
+            <label th:for="message">Message: </label>
+            <input type="text" th:field="*{message}" th:errorClass="errorField"/>
+            <span class="errorMessage" th:if="${#fields.hasErrors('message')}" th:errors="*{message}">
+                    Invalid message
+                </span>
+        </div>
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>
