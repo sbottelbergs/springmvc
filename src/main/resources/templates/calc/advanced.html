@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div th:text="${result}">Result</div>
+
+    <form method="post">
+        <p>
+            <input type="text" name="value" autocomplete="off" th:autofocus="true"/>
+        </p>
+        <span th:each="operation : ${operations}" style="margin-right: 5px">
+            <input type="submit" name="action" th:value="${operation}"/>
+        </span>
+    </form>
+</body>
+</html>
