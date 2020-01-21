@@ -3,7 +3,7 @@ package be.syntra.java.advanced.springmvc.address;
 public class Address {
     private String firstName;
     private String lastName;
-    private String street;
+    private String streetAndNumber;
     private int zipCode;
     private String area;
     private String country;
@@ -24,12 +24,12 @@ public class Address {
         this.lastName = lastName;
     }
 
-    public String getStreet() {
-        return street;
+    public String getStreetAndNumber() {
+        return streetAndNumber;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setStreetAndNumber(String streetAndNumber) {
+        this.streetAndNumber = streetAndNumber;
     }
 
     public int getZipCode() {

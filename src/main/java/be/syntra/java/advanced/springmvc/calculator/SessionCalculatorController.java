@@ -2,12 +2,11 @@ package be.syntra.java.advanced.springmvc.calculator;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/calc/advanced")
-@SessionScope
+@SessionAttributes("result")
 public class SessionCalculatorController {
 
     private static final String ADD = "+";

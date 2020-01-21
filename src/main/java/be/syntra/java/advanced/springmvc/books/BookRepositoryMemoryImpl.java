@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class BookRepositoryImpl implements BookRepository {
+public class BookRepositoryMemoryImpl implements BookRepository {
     private List<Book> books;
 
-    public BookRepositoryImpl() {
+    public BookRepositoryMemoryImpl() {
         books = new ArrayList<>();
         books.add(
                 Book.builder()

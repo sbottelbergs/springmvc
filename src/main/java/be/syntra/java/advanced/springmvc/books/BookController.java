@@ -26,8 +26,8 @@ public class BookController {
         return new ModelAndView("books/bookList", "books", bookRepository.getBooks());
     }
 
-    @GetMapping("/{isbn}")
-    public ModelAndView handleGet(@PathVariable String isbn) {
+    @GetMapping("/detail")
+    public ModelAndView handleGet(@RequestParam("isbn") String isbn) {
         Optional<Book> book = bookRepository.getBookByIsbn(isbn);
         if (book.isPresent()) {
             return new ModelAndView("books/bookDetail", "book", book.get());
