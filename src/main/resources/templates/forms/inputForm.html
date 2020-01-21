@@ -6,11 +6,8 @@
     <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
-    <form method="post" th:object="${myform}">
-        <div th:each="choice : ${choiceList}">
-            <label th:for="${#ids.next('choices')}" th:text="${choice}"/>
-            <input type="checkbox" th:field="*{choices}" th:value="${choice}"/>
-        </div>
+    <form method="post" th:object="${myform}" style="width: 200px">
+
         <div>
             <label th:for="message">Message: </label>
             <input type="text" th:field="*{message}" th:errorClass="errorField"/>
@@ -18,6 +15,37 @@
                     Invalid message
                 </span>
         </div>
+
+        <hr>
+
+        <div>
+            <label th:for="${#ids.next('selection')}">Selection: </label>
+            <input type="checkbox" th:field="*{selection}" />
+        </div>
+
+        <hr>
+
+        <div th:each="radio : ${radioList}">
+            <label th:for="${#ids.next('radioValue')}" th:text="${radio}">Radio label</label>
+            <input type="radio" th:field="*{radioValue}" th:value="${radio}"/>
+        </div>
+
+        <hr>
+
+        <div th:each="size : ${T(be.syntra.java.advanced.springmvc.form.SizeType).values()}">
+            <label th:for="${#ids.next('size')}" th:text="${size}">Radio label</label>
+            <input type="radio" th:field="*{size}" th:value="${size}"/>
+        </div>
+
+        <hr>
+
+        <div th:each="choice : ${choiceList}">
+            <label th:for="${#ids.next('choices')}" th:text="${choice}">Choice</label>
+            <input type="checkbox" th:field="*{choices}" th:value="${choice}"/>
+        </div>
+
+        <br>
+
         <input type="submit" value="Submit"/>
     </form>
 </body>
