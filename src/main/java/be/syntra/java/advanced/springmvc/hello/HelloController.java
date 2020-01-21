@@ -31,6 +31,11 @@ public class HelloController {
         this.helloService = helloService;
     }
 
+    @GetMapping
+    public String redirect() {
+        return "redirect:/hello";
+    }
+
     @RequestMapping("/hello")
     public ModelAndView homePage() {
         String text = helloService.sayHello();
