@@ -22,6 +22,8 @@ public class HelloApplication {
                 registry.addViewController("/welcome").setViewName("welcome");
                 registry.addViewController("/customer/customerdetail").setViewName("customer/customerdetail");
                 registry.addViewController("/address/addressdetail").setViewName("address/addressdetail");
+                registry.addViewController("/bootstrap").setViewName("bootstrap/bootstrap");
+                registry.addViewController("/materialize").setViewName("materialize/materialize");
             }
         };
     }
