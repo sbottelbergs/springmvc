@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body class="vehicle-registration">
+<h1>Registration of a new vehicle</h1>
+<form method="post" th:object="${vehicle}">
+    <div class="form-row">
+        <label th:for="brand">Brand*: </label>
+        <div class="input-wrapper">
+            <div class="errorMessage" th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">
+                Invalid brand
+            </div>
+            <input type="text" th:field="*{brand}" th:errorClass="errorField"/>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <label th:for="type">Type*: </label>
+        <div class="input-wrapper">
+            <div class="errorMessage" th:if="${#fields.hasErrors('type')}" th:errors="*{type}">
+                Invalid type
+            </div>
+            <input type="text" th:field="*{type}" th:errorClass="errorField"/>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <label th:for="year">Year*: </label>
+        <div class="input-wrapper">
+            <div class="errorMessage" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">
+                Invalid year
+            </div>
+            <input type="text" th:field="*{year}" th:errorClass="errorField"/>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <label th:for="fuelType">Fuel*: </label>
+        <select th:field="*{fuelType}">
+            <option
+                    th:each="fuel : ${T(be.syntra.java.advanced.springmvc.vehicle.FuelType).values()}"
+                    th:value="${fuel}" th:text="${fuel}"></option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label th:for="power">Power (kW)*: </label>
+        <div class="input-wrapper">
+            <div class="errorMessage" th:if="${#fields.hasErrors('power')}" th:errors="*{power}">
+                Invalid power
+            </div>
+            <input type="text" th:field="*{power}" th:errorClass="errorField"/>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <label th:for="transmission">Transmission*: </label>
+        <div class="input-wrapper">
+            <div class="errorMessage" th:if="${#fields.hasErrors('transmission')}" th:errors="*{transmission}">
+                Invalid transmission
+            </div>
+            <span th:each="trans : ${T(be.syntra.java.advanced.springmvc.vehicle.TransmissionType).values()}">
+                <input type="radio" th:field="*{transmission}" th:value="${trans}"/>
+                <label th:for="${#ids.prev('transmission')}" th:text="${trans}"></label>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <label th:for="${#ids.next('towBar')}">Towbar: </label>
+        <input type="checkbox" th:field="*{towBar}"/>
+    </div>
+
+    <div class="form-row">
+        <label th:for="options">Options: </label>
+        <select th:field="*{options}" multiple="multiple">
+            <option th:each="option : ${options}" th:value="${option}" th:text="${option}">Option</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label th:for="entryIntoService">Date entry into service (dd/mm/yyyy)*:</label>
+        <div class="input-wrapper">
+            <div class="errorMessage" th:if="${#fields.hasErrors('entryIntoService')}" th:errors="*{entryIntoService}">
+                Invalid date
+            </div>
+            <input type="text" th:field="*{entryIntoService}" th:errorClass="errorField"/>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <label th:for="plate">Plate (D-XXX-DDD)*:</label>
+        <div class="input-wrapper">
+            <div class="errorMessage" th:if="${#fields.hasErrors('plate')}" th:errors="*{plate}">
+                Invalid date
+            </div>
+            <input type="text" th:field="*{plate}" th:errorClass="errorField"/>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <label th:for="listPrice">Price*:</label>
+        <div class="input-wrapper">
+            <div class="errorMessage" th:if="${#fields.hasErrors('listPrice')}" th:errors="*{listPrice}">
+                Invalid date
+            </div>
+            <input type="text" th:field="*{listPrice}" th:errorClass="errorField"/>
+        </div>
+    </div>
+
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>

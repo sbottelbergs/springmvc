@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle details</title>
+</head>
+<body th:object="${vehicle}">
+    <h1>Vehicle details</h1>
+    <p>Brand: [[*{brand}]]</p>
+    <p>Type: [[*{type}]]</p>
+    <p>Fuel type: [[*{fuelType}]]</p>
+    <p>Year: [[*{year}]]</p>
+    <p>Power: [[*{power}]]</p>
+    <p>Transmission: [[*{transmission}]]</p>
+    <p>Date entry into service: [[*{entryIntoService}]]</p>
+    <p>Plate: [[*{plate}]]</p>
+    <p>Price: [[*{listPrice}]]</p>
+    <p>Towbar: [[*{towBar ? 'Yes' : 'No'}]]</p>
+    <p>Options:
+        <ul>
+            <li th:each="option : *{options}" th:text="${option}"></li>
+        </ul>
+    </p>
+</body>
+</html>
