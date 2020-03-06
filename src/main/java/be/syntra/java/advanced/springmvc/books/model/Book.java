@@ -1,4 +1,4 @@
-package be.syntra.java.advanced.springmvc.books;
+package be.syntra.java.advanced.springmvc.books.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

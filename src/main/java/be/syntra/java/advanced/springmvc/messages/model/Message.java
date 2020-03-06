@@ -1,4 +1,4 @@
-package be.syntra.java.advanced.springmvc.restclient.model;
+package be.syntra.java.advanced.springmvc.messages.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

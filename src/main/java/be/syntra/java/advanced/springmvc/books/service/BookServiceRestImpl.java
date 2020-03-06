@@ -1,10 +1,8 @@
 package be.syntra.java.advanced.springmvc.books.service;
 
-import be.syntra.java.advanced.springmvc.books.Book;
-import be.syntra.java.advanced.springmvc.books.BookList;
-import be.syntra.java.advanced.springmvc.restclient.model.Message;
-import be.syntra.java.advanced.springmvc.restclient.model.MessageList;
-import org.springframework.beans.factory.annotation.Value;
+import be.syntra.java.advanced.springmvc.books.model.Book;
+import be.syntra.java.advanced.springmvc.books.model.BookList;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,10 +11,9 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Service
+@Primary
 public class BookServiceRestImpl implements BookService {
 
-    @Value("${baseUrl}")
-    private String baseUrl;
     private RestTemplate template;
 
     public BookServiceRestImpl(RestTemplate template) {
@@ -25,7 +22,7 @@ public class BookServiceRestImpl implements BookService {
 
     @Override
     public List<Book> getAllBooks() {
-        ResponseEntity<BookList> response = template.getForEntity(baseUrl + "/books", BookList.class);
+        ResponseEntity<BookList> response = template.getForEntity("/books", BookList.class);
         if (response.getStatusCode() == HttpStatus.OK) {
             return response.getBody().getBooks();
         } else {
@@ -35,7 +32,7 @@ public class BookServiceRestImpl implements BookService {
 
     @Override
     public Book getBookByIsbn(String isbn) {
-        ResponseEntity<Book> response = template.getForEntity(baseUrl + "/books/{isbn}", Book.class, isbn);
+        ResponseEntity<Book> response = template.getForEntity("/books/{isbn}", Book.class, isbn);
         if (response.getStatusCode() == HttpStatus.OK) {
             return response.getBody();
         } else {

@@ -1,5 +1,6 @@
 package be.syntra.java.advanced.springmvc.books;
 
+import be.syntra.java.advanced.springmvc.books.model.Book;
 import be.syntra.java.advanced.springmvc.books.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ public class BookController {
     private final BookService bookService;
 
     @Autowired
-    public BookController(BookService bookService) {
+    public BookController(/*@Qualifier("feignBookService")*/ BookService bookService) {
         this.bookService = bookService;
     }
 

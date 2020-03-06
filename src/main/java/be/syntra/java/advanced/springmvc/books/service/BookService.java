@@ -1,6 +1,6 @@
 package be.syntra.java.advanced.springmvc.books.service;
 
-import be.syntra.java.advanced.springmvc.books.Book;
+import be.syntra.java.advanced.springmvc.books.model.Book;
 
 import java.util.List;
 

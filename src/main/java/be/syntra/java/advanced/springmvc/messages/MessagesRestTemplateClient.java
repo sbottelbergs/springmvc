@@ -1,21 +1,23 @@
-package be.syntra.java.advanced.springmvc.restclient;
+package be.syntra.java.advanced.springmvc.messages;
 
-import be.syntra.java.advanced.springmvc.restclient.model.Message;
-import be.syntra.java.advanced.springmvc.restclient.model.MessageList;
+import be.syntra.java.advanced.springmvc.messages.model.Message;
+import be.syntra.java.advanced.springmvc.messages.model.MessageList;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-public class MessagesRestClient implements MessagesClient {
+@Primary
+public class MessagesRestTemplateClient implements MessagesClient {
 
     @Value("${baseUrl}")
     private String baseUrl;
     private RestTemplate template;
 
-    public MessagesRestClient(RestTemplate template) {
+    public MessagesRestTemplateClient(RestTemplate template) {
         this.template = template;
     }
 
